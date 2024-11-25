@@ -4,6 +4,9 @@ import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import Cta from "@components/cta.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import Reviews from "@components/reviews.astro";
 
 // Filter team entries with 'draft: false' & date before current date
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
@@ -11,7 +14,9 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
 });
 ---
 
-<Layout title="About">
+    <Layout title="Same Day Appliance Repair - About" description="Same Day Appliance Repair, serving Los Angeles and nearby areas, fixing all major applainces of all amjor brands. ">
+  <Navbar />
+<Reviews />
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
@@ -54,4 +59,5 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       }
     </div>
   </Container>
-</Layout>
+ 
+<Cta />
